@@ -37,7 +37,7 @@ class ProdutoController extends Controller
         $produto->update($request->all());
     }
 
-    public function destroy(produto $produto)
+    public function destroy($id)
     {
         $produto = produto::findOrfail($id);
         $produto->delete();
