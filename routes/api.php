@@ -18,7 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('produtos', 'App\Http\Controllers\API\produtoController@index');
-Route::post('produtos', 'App\Http\Controllers\API\produtoController@store');
-Route::put('produtos', 'App\Http\Controllers\API\produtoController@update');
-Route::delete('produtos', 'App\Http\Controllers\API\produtoController@destroy');
+Route::get('/produtos', 'App\Http\Controllers\API\produtoController@index');
+Route::get('/produtos {id}', 'App\Http\Controllers\API\produtoController@show');
+Route::post('/produtos', 'App\Http\Controllers\API\produtoController@store');
+Route::put('/produtos', 'App\Http\Controllers\API\produtoController@update');
+Route::delete('/produtos', 'App\Http\Controllers\API\produtoController@destroy');
