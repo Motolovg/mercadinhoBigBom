@@ -18,10 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/produtos', 'App\Http\Controllers\API\produtoController@index');
-Route::get('/produtos/{id}', 'App\Http\Controllers\API\produtoController@show');
-Route::post('/produtos', 'App\Http\Controllers\API\produtoController@store');
-Route::put('/produtos/{id}', 'App\Http\Controllers\API\produtoController@update');
-Route::delete('/produtos/{id}', 'App\Http\Controllers\API\produtoController@destroy');
+Route::get('/produtos', 'App\Http\Controllers\API\produtoController@index');  // Chamada para function index em produtoController
+Route::get('/produtos/{id}', 'App\Http\Controllers\API\produtoController@show'); // Chamada para function show em produtoController
+Route::post('/produtos', 'App\Http\Controllers\API\produtoController@store'); //Chamada para function store em produtoController
+Route::put('/produtos/{id}', 'App\Http\Controllers\API\produtoController@update'); //Chamada para function update em produtoController
+Route::delete('/produtos/{id}', 'App\Http\Controllers\API\produtoController@destroy'); //Chamada para function delete em produtoController
 
-route::apiResource('produtos', 'ProdutoController');
+//route::apiResource('produtos', 'ProdutoController'); 
