@@ -3,18 +3,14 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Produto;
 use Illuminate\Http\Request;
+use App\Models\Produto;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class ProdutoController extends Controller
+class produtoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         return response()->json(produto::all());
@@ -22,24 +18,24 @@ class ProdutoController extends Controller
 
     public function store(Request $request)
     {
-      produto::create($request->all());
+      Produto::create($request->all());
     }
 
     
     public function show($id)
-    {
-        return produto::findOrfail($id);
+    { 
+        return response()->json(produto::findOrfail($id));   
     }
 
-    public function update(Request $request, produto $produto)
+    public function update(Request $request, $id)
     {
-        $produto = produto::findOrfail($id);
+        $produto = produto::findorfail($id);
         $produto->update($request->all());
     }
 
     public function destroy($id)
     {
-        $produto = produto::findOrfail($id);
+        $produto = produto::findorfail($id);
         $produto->delete();
     }
 }
